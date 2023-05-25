@@ -19,8 +19,12 @@ namespace EdgarAparicio.Cities.Manager.IOC
         //En el proyecto Repository en la clase CitiesContext se encuentra la configracion del DBContext
         public static void AgregarDBContextCiudades(this IServiceCollection services, IConfiguration configuration)
         {
+            //Linea de tutoriales puntos de venta youtube
             services.AddDbContext<CitiesContext>(options =>
             options.UseSqlServer(configuration.GetConnectionString("CadenaCiudades")));
+
+            //Linea Pluralsight
+            //services.AddDbContext<CitiesContext>(options => options.UseSqlite("Data Source= CityInfo.dbo"));
         }
     }
 }

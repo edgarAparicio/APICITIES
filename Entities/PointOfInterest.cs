@@ -20,7 +20,7 @@ namespace EdgarAparicio.Cities.Manager.Entities
 
         //Para navegar a la entidad City
         [ForeignKey("CityId")]
-
+        //Propiedad de navegacion 
         public City? City { get; set; }
         public int? CityId { get; set; }
         public PointOfInterest(string name)

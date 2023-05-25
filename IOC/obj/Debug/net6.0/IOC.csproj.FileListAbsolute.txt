@@ -17,3 +17,5 @@ C:\Users\edgar\source\repos\APICiudades\APICITIES\IOC\obj\Debug\net6.0\IOC.dll
 C:\Users\edgar\source\repos\APICiudades\APICITIES\IOC\obj\Debug\net6.0\refint\IOC.dll
 C:\Users\edgar\source\repos\APICiudades\APICITIES\IOC\obj\Debug\net6.0\IOC.pdb
 C:\Users\edgar\source\repos\APICiudades\APICITIES\IOC\obj\Debug\net6.0\ref\IOC.dll
+C:\Users\edgar\source\repos\APICiudades\APICITIES\IOC\bin\Debug\net6.0\IOC.runtimeconfig.json
+C:\Users\edgar\source\repos\APICiudades\APICITIES\IOC\obj\Debug\net6.0\IOC.genruntimeconfig.cache

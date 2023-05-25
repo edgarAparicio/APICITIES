@@ -13,3 +13,5 @@ C:\Users\edgar\source\repos\APICiudades\APICITIES\Repository\obj\Debug\net6.0\Re
 C:\Users\edgar\source\repos\APICiudades\APICITIES\Repository\obj\Debug\net6.0\refint\Repository.dll
 C:\Users\edgar\source\repos\APICiudades\APICITIES\Repository\obj\Debug\net6.0\Repository.pdb
 C:\Users\edgar\source\repos\APICiudades\APICITIES\Repository\obj\Debug\net6.0\ref\Repository.dll
+C:\Users\edgar\source\repos\APICiudades\APICITIES\Repository\bin\Debug\net6.0\Repository.runtimeconfig.json
+C:\Users\edgar\source\repos\APICiudades\APICITIES\Repository\obj\Debug\net6.0\Repository.genruntimeconfig.cache

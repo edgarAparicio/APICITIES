@@ -11,6 +11,7 @@ namespace EdgarAparicio.Cities.Repository.Context
     public class CitiesContext : DbContext
     {
         //Se necesita instalar el paquete Microsoft.EntityFrameworkCore
+        //Metodo para DbContext por medio del contructor
         public CitiesContext(DbContextOptions<CitiesContext> options) : base(options)
         {
 
@@ -24,5 +25,15 @@ namespace EdgarAparicio.Cities.Repository.Context
         public DbSet<City> Cities { get; set; } = null!;
 
         public DbSet<PointOfInterest> PointsOfInterest { get; set; } = null!;
+
+
+        //Metodo para SQLLIte sin usar constructor
+
+        //protected override void OnConfigurin(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    optionsBuilder.UseSqlite("CadenaCiudades");
+        //    base.OnConfiguring(optionsBuilder);
+        //}
+
     }
 }
