@@ -1,4 +1,8 @@
-﻿using EdgarAparicio.Cities.Repository.Context;
+﻿using EdgarAparicio.Cities.Manager.Interfaces;
+using EdgarAparicio.Cities.Manager.Manager;
+using EdgarAparicio.Cities.Repository.Context;
+using EdgarAparicio.Cities.Repository.Interfaces;
+using EdgarAparicio.Cities.Repository.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -25,6 +29,10 @@ namespace EdgarAparicio.Cities.Manager.IOC
 
             //Linea Pluralsight
             //services.AddDbContext<CitiesContext>(options => options.UseSqlite("Data Source= CityInfo.dbo"));
+
+            services.AddScoped(typeof(ICityRepository), typeof(CityRepository));
+            services.AddScoped<ICityManager, CityManager>();
+
         }
     }
 }

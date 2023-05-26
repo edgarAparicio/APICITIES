@@ -1,4 +1,6 @@
+using EdgarAparicio.Cities.Manager.Interfaces;
 using EdgarAparicio.Cities.Manager.IOC;
+using EdgarAparicio.Cities.Manager.Manager;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,8 +23,12 @@ builder.Services.AgregarDBContextCiudades(builder.Configuration);
 
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+//Se agrega en la capa IOC en la clase dependencias
+//builder.Services.AddScoped(typeof(ICityManager), typeof(CityManager));
 
 var app = builder.Build();
 
