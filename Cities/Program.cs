@@ -21,6 +21,9 @@ builder.Services.AgregarDBContextCiudades(builder.Configuration);
 //        builder.Configuration["CadenaCiudades"]));
 
 
+//Se intala el paquete Automapper Dependece Injection y se hace la llamada al servicio.
+//Tambien se debe instalar en el proyecto donde estan las entidades y los viewmodels
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 
