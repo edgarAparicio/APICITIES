@@ -31,7 +31,9 @@ namespace EdgarAparicio.Cities.Manager.IOC
             //services.AddDbContext<CitiesContext>(options => options.UseSqlite("Data Source= CityInfo.dbo"));
 
             services.AddScoped(typeof(ICityRepository), typeof(CityRepository));
+            services.AddScoped(typeof(IPointOfInterestRepository), typeof(PointOfInterestRepository));
             services.AddScoped<ICityManager, CityManager>();
+            services.AddScoped<IPointOfInterestManager, PointOfInterestManager>();
 
         }
     }

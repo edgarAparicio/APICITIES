@@ -25,45 +25,47 @@ namespace Cities.Controllers
             _cityManager = cityManager;
             _mapper = mapper;
         }
-
-        //[HttpGet]
-        //public async Task<ActionResult<IEnumerable<CityWithoutPointsOfInterest>>> GetCities()
-        //{
-        //    var cityEntities = await _cityManager.GetCitiesAsync();
-
-        //    var results = new List<CityWithoutPointsOfInterest>();
-        //    foreach (var cityEntity in cityEntities)
-        //    {
-        //        results.Add(new CityWithoutPointsOfInterest
-        //        {
-        //            Id = cityEntity.Id,
-        //            Name = cityEntity.Name,
-        //            Description = cityEntity.Description
-
-        //        });
-        //    }
-
-        //    return Ok(results);
-        //}
-
-        //[HttpGet("GetCitiesWithoutPointsOfInterestAutoMapper")]
-        //Postman => https://localhost:7099/api/cities/GetCitiesWithoutPointsOfInterestAutoMapper
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<CityWithoutPointsOfInterest>>> GetCitiesWithoutPointsOfInterestAutoMapper()
+        //[HttpGet] Si varios endpoints tienen solo HttpGet en la peticioness marcara error o solo ira por el primer metodo que tenga HttpGet
+        //La deficinición debera ser asi:
+        [HttpGet("getCitiesWithoutPointsOfInterest")]
+        //Postman: https://localhost:7099/api/cities/getCitiesWithoutPointsOfInterest
+        public async Task<ActionResult<IEnumerable<CityWithoutPointsOfInterest>>> GetCities()
         {
-            var citiesEntities = await _cityManager.GetCitiesAsync();
-            return Ok(_mapper.Map<IEnumerable<CityWithoutPointsOfInterest>>(citiesEntities));
+            var cityEntities = await _cityManager.GetCitiesAsync();
+
+            var results = new List<CityWithoutPointsOfInterest>();
+            foreach (var cityEntity in cityEntities)
+            {
+                results.Add(new CityWithoutPointsOfInterest
+                {
+                    Id = cityEntity.Id,
+                    Name = cityEntity.Name,
+                    Description = cityEntity.Description
+
+                });
+            }
+
+            return Ok(results);
         }
 
+        [HttpGet("getCitiesWithoutPointsOfInterestAutoMapper")]
+        //Postman => https://localhost:7099/api/cities/GetCitiesWithoutPointsOfInterestAutoMapper
+        public async Task<ActionResult<IEnumerable<CityWithoutPointsOfInterestViewModel>>> GetCitiesWithoutPointsOfInterestAutoMapper()
+        {
+            var citiesEntities = await _cityManager.GetCitiesAsync();
+            return Ok(_mapper.Map<IEnumerable<CityWithoutPointsOfInterestViewModel>>(citiesEntities));
+        }
+
+        //[HttpGet("{id}", Name= "getCityWithOrWithoutPointsOfInterestAutoMapper")]
         [HttpGet("{id}")]
 
         //De esta forma el request en postman seria asi 
-        //Sin puntos de interes https://localhost:7099/api/cities/2 
+        //Sin puntos de interes https://localhost:7099/api/cities/2
         //Con puntos de interes https://localhost:7099/api/cities/2?includePointsOfInterest=true
         //[HttpGet("GetCityAutoMapper")]
         //[Route("{id}")]
 
-        public async Task<ActionResult<CityViewModel>> GetCityAutoMapper(int id, bool includePointsOfInterest = false)
+        public async Task<IActionResult> GetCityAutoMapper(int id, bool includePointsOfInterest = false)
         {
             var city = await _cityManager.GetCityAsync(id, includePointsOfInterest);
             if(city == null)

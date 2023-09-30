@@ -32,8 +32,7 @@ namespace EdgarAparicio.Cities.Repository.Repositories
                     .Where(c => c.Id == cityId).FirstOrDefaultAsync();
             }
 
-            return await _context.Cities.Include(c => c.PointsOfInterest)
-                .Where(c => c.Id == cityId).FirstOrDefaultAsync();
+            return await _context.Cities.Where(c => c.Id == cityId).FirstOrDefaultAsync();
         }
 
         public async Task<PointOfInterest?> GetPointOfInterestAsync(int cityId, int pointOfInterestId)

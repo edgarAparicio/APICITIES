@@ -8,7 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 
-//En el proyecto IOC en la clase Dependence se agrega la inyeccion de dependencia para configurar la concexion a SQL SERVER
+//En el proyecto IOC en la clase Dependence se agrega la inyeccion de dependencia para configurar la conexion a SQL SERVER
 //Se hace el llamado al metodo AgregarDBContextCiudades pasandoile el parametro builder.configuration
 builder.Services.AgregarDBContextCiudades(builder.Configuration);
 
